@@ -1,0 +1,18 @@
+Exécuter un projet:
+php bin/console server:run
+
+Lancer le serveur local sous Symfony 5:
+php -S localhost:8000 -t public
+
+Faire un formulaire:
+php ./bin/console make:form
+
+Faire un controller:
+php ./bin/console make:controller
+
+Faire une entité:
+php ./bin/console make:entity
+
+Ecrire un use automatiquement avec l'extension: ctrl+alt+i
+
+URL pour tester les erreurs: "http://127.0.0.1:8000/_error/403"

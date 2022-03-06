@@ -1,0 +1,14 @@
+///Procédure
+Ouvir le fichier .env
+Modifier le db_user, db_password et le db_name             (Il faut mettre les droits à l'utilisateur pour modifier la bdd sur phpMyAdmin)
+
+///Chaine de connexion:
+DATABASE_URL=mysql://wilfried:Epsi2019!@127.0.0.1:3306/projetb3
+
+Dans le terminal:
+php bin/console make:migration
+php bin/console doctrine:migrations:migrate
+y
+
+
+database to entity symfony (petite phrase en descendant un peu)
