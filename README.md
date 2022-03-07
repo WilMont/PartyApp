@@ -22,7 +22,7 @@ PartyApp est une application qui permet aux utilisateur de créer et partager de
 >DATABASE_URL=mysql://nomUtilisateurBDD:mdpBDD@127.0.0.1:3306/nomBDD
 8. Supprimez tous les fichiers migration dans src/Migrations.
 9. Exécutez les commandes
->php bin/console make:migration
+>php bin/console make:migration  
 >php bin/console doctrine:migrations:migrate
 10. Lancez le serveur avec la commande
 >php bin/console server:run
