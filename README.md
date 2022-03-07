@@ -5,9 +5,9 @@ PartyApp est une application qui permet aux utilisateur de créer et partager de
 
 ## Outils requis
 * Git
-* Composer
 * WAMP (ou autre système permettant de faire tourner un serveur local).
-* PHP 7.4.2
+* PHP 7.4.2 (installé avec WAMP)
+* Composer
 
 ## Installation
 1. Installez les outils requis.
