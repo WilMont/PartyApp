@@ -76,7 +76,7 @@ class EvenementsController extends AbstractController
             $em->persist($evenement);
             $em->flush();
 
-            return $this->redirectToRoute("liste_evenements");
+            return $this->redirectToRoute("liste_evenements_publiques");
         }
 
         return $this->render('evenements/formulaireAjoutEvenement.html.twig', [
@@ -107,7 +107,7 @@ class EvenementsController extends AbstractController
             $em->persist($evenement);
             $em->flush();
 
-            return $this->redirectToRoute("liste_evenements");
+            return $this->redirectToRoute("liste_evenements_publiques");
         }
 
         return $this->render('evenements/formulaireModificationEvenement.html.twig', [
@@ -138,7 +138,7 @@ class EvenementsController extends AbstractController
             $em->remove($evenement);
             $em->flush();
 
-            return $this->redirectToRoute("liste_evenements");
+            return $this->redirectToRoute("liste_evenements_publiques");
         }
 
         return $this->render('evenements/confirmationSuppressionEvenement.html.twig', [
