@@ -11,6 +11,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
@@ -27,6 +28,9 @@ class EvenementType extends AbstractType
                 'class' => Categories::class,
                 'choice_label' => 'nom',
                 'label' => 'Catégorie'])
+            ->add('estPrive', CheckboxType::class, [
+                'label' => 'Privée',
+                'required' => false])
             ->add('valider', SubmitType::class, array('label' => 'Créer l\'évènement', 'attr' => ['class' => 'btn btn-success']));
     }
 
