@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello InvitationController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+        {% for invitation in invitations%}
+        
+        <div>
+            <span> {{invitation.id}}</span>
+        </div>
+        <a href="{{ path("invitation_accepter",{"idInvitation":invitation.id,"idEvenement":invitation.evenement.id,"idUtilisateur":invitation.utilisateur.id}) }}">Accepter</a>
+        <a href="{{ path("invitation_refuser",{"idInvitation":invitation.id}) }}">Refuser</a>
+
+        {% endfor %}
+</div>
+{% endblock %}

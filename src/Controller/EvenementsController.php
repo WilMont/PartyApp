@@ -46,6 +46,8 @@ class EvenementsController extends AbstractController
         $lesEvenements = $evenementsRepository->findBy([
             "estPrive" => 0
         ]);
+
+        
         
         return $this->render('evenements/listeEvenements.html.twig', [
             'lesEvenements' => $lesEvenements,
