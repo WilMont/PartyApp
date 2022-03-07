@@ -39,6 +39,13 @@
 							<a class="nav-link" href="{{path('login')}}">CREER EVENEMENT</a>
 						{% endif %}
 					</li>
+					<li class="nav-item">
+						{% if app.user %}
+							<a class="nav-link" href="{{path('invitation_liste')}}">INVITATIONS</a>
+						{% elseif not app.user %}
+							<a class="nav-link" href="{{path('login')}}">INVITATIONS</a>
+						{% endif %}
+					</li>
 				</ul>
 				<form class="form-inline my-2 my-lg-0">
 					<input class="form-control mr-sm-2" type="text" placeholder="Search">
