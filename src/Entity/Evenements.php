@@ -64,6 +64,11 @@ class Evenements
      */
     private $dateDebut;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $estPrive;
+
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
@@ -180,6 +185,18 @@ class Evenements
     public function setDateDebut(\DateTimeInterface $dateDebut): self
     {
         $this->dateDebut = $dateDebut;
+        return $this;
+    }
+
+    public function getEstPrive(): ?bool
+    {
+        return $this->estPrive;
+    }
+
+    public function setEstPrive(bool $estPrive): self
+    {
+        $this->estPrive = $estPrive;
+
         return $this;
     }
 }
