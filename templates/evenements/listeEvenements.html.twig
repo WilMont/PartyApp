@@ -93,12 +93,16 @@
 						<a href="{{ path("evenement_supprimer",{"id_evenement":evenement.id}) }}">
 							<i class="material-icons" style="color:crimson;" title="Supprimer">delete</i>
 						</a>
+						<a href="{{ path("invitation_add",{"idEvenement":evenement.id}) }}">
+							<i class="material-icons" title="Modifier">playlist add</i>
+						</a>
 					</h2>
 				{% elseif app.user != evenement.compte %}
 					<h2>{{evenement.titre}}
 					</h2>
 				{% endif %}
 
+				{# Gere l'affichage du bouton participer si on est deja dans les participants ou non  #}
 				{% set present = false %}
 				{% set break = false %}
 

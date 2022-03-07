@@ -74,10 +74,16 @@ class Evenements
      */
     private $participations;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Invitation::class, mappedBy="evenement")
+     */
+    private $invitations;
+
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
         $this->participations = new ArrayCollection();
+        $this->invitations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -230,6 +236,36 @@ class Evenements
             // set the owning side to null (unless already changed)
             if ($participation->getIdEvenements() === $this) {
                 $participation->setIdEvenements(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Invitation>
+     */
+    public function getInvitations(): Collection
+    {
+        return $this->invitations;
+    }
+
+    public function addInvitation(Invitation $invitation): self
+    {
+        if (!$this->invitations->contains($invitation)) {
+            $this->invitations[] = $invitation;
+            $invitation->setEvenement($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInvitation(Invitation $invitation): self
+    {
+        if ($this->invitations->removeElement($invitation)) {
+            // set the owning side to null (unless already changed)
+            if ($invitation->getEvenement() === $this) {
+                $invitation->setEvenement(null);
             }
         }
 
