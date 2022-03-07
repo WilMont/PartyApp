@@ -69,9 +69,15 @@ class Evenements
      */
     private $estPrive;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Participation::class, mappedBy="idEvenements")
+     */
+    private $participations;
+
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
+        $this->participations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -196,6 +202,36 @@ class Evenements
     public function setEstPrive(bool $estPrive): self
     {
         $this->estPrive = $estPrive;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Participation>
+     */
+    public function getParticipations(): Collection
+    {
+        return $this->participations;
+    }
+
+    public function addParticipation(Participation $participation): self
+    {
+        if (!$this->participations->contains($participation)) {
+            $this->participations[] = $participation;
+            $participation->setIdEvenements($this);
+        }
+
+        return $this;
+    }
+
+    public function removeParticipation(Participation $participation): self
+    {
+        if ($this->participations->removeElement($participation)) {
+            // set the owning side to null (unless already changed)
+            if ($participation->getIdEvenements() === $this) {
+                $participation->setIdEvenements(null);
+            }
+        }
 
         return $this;
     }

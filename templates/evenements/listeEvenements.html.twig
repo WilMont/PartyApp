@@ -72,6 +72,14 @@
     		border-bottom-right-radius: 10px !important;
 		}
 
+		.btn-participer{
+			background-color:#fcb045; 
+			color: brown;
+			border-radius: 10px !important;
+			min-width: 1000px;
+			margin: auto;
+		}
+
 	</style>
 
 	<div class="main-wrapper">
@@ -90,6 +98,28 @@
 					<h2>{{evenement.titre}}
 					</h2>
 				{% endif %}
+
+				{% set present = false %}
+				{% set break = false %}
+
+				{% if evenement.participations is empty%}
+					{% set break = true %}
+				{% else %}
+					{% for participation in evenement.participations  %}
+						{% if not break %}
+							{% if app.user.id  ==  participation.idUtilisateur.id %}
+								{% set present = true %}
+								{% set break = true %}
+							{% endif %}
+						{% endif %}
+					{% endfor %}
+				{% endif %}
+
+				{% if not present %}
+					<a href="{{path('participation_ajouter', {idEvenement: evenement.id})}}" class="btn-participer" >Participer</a>
+				{% endif %}
+				
+				
 				<hr>
 				<p id="organisateurEvenement">
 					<i class="material-icons">person</i>Auteur:

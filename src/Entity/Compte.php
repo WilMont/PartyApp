@@ -78,10 +78,16 @@ class Compte implements UserInterface
      */
     private $commentaires;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Participation::class, mappedBy="idUtilisateur")
+     */
+    private $participations;
+
     public function __construct()
     {
         $this->evenements = new ArrayCollection();
         $this->commentaires = new ArrayCollection();
+        $this->participations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -237,6 +243,36 @@ class Compte implements UserInterface
             // set the owning side to null (unless already changed)
             if ($commentaire->getCompte() === $this) {
                 $commentaire->setCompte(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Participation>
+     */
+    public function getParticipations(): Collection
+    {
+        return $this->participations;
+    }
+
+    public function addParticipation(Participation $participation): self
+    {
+        if (!$this->participations->contains($participation)) {
+            $this->participations[] = $participation;
+            $participation->setIdUtilisateur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeParticipation(Participation $participation): self
+    {
+        if ($this->participations->removeElement($participation)) {
+            // set the owning side to null (unless already changed)
+            if ($participation->getIdUtilisateur() === $this) {
+                $participation->setIdUtilisateur(null);
             }
         }
 
