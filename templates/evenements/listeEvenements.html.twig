@@ -5,6 +5,10 @@
 
 {% block body %}
 	<style>
+		body{
+			background: rgb(252,176,69);
+			background: linear-gradient(90deg, rgba(252,176,69,1) 25%, rgba(248,252,69,1) 40%, rgba(248,246,69,1) 60%, rgba(252,176,69,1) 75%);
+		}
 		.main-wrapper {
 			margin: 1em auto;
 			max-width: 800px;
@@ -14,17 +18,18 @@
 		.main-wrapper p {
 			margin: 0;
 			padding: 0;
+			border-radius:10px;
 		}
 		.evenement {
-			border: 1px solid black;
-			border-radius: 5px;
+			border-radius: 10px;
 			text-shadow: 0 1px 2px rgba(0, 0, 0, 0.10);
-			-webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.50);
-			-moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.50);
-			box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.50);
+			-webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.50);
+			-moz-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.50);
+			box-shadow: 0 0 20px 0 rgb(0 0 0 / 50%);
 			width: 100%;
 			max-width: 100%;
 			margin-bottom: 20px;
+			background-color: whitesmoke;
 		}
 		.evenement h2 {
 			margin-left: 10px;
@@ -59,6 +64,14 @@
 			margin-bottom: 10px;
 			font-size: 90%;
 		}
+
+		.btn-evenement{
+			background-color:#fcb045; 
+			color: brown;
+			border-bottom-left-radius: 10px !important;
+    		border-bottom-right-radius: 10px !important;
+		}
+
 	</style>
 
 	<div class="main-wrapper">
@@ -99,7 +112,7 @@
 				<div class="contenu">
 					<iframe width="560" height="315" src="{{evenement.video}}" alt=""></iframe>
 					<p>{{evenement.contenu | raw }}</p>
-					<a href="{{path('evenement_details', {id_evenement: evenement.id})}}" class="btn btn-primary">Lire la suite</a>
+					<a href="{{path('evenement_details', {id_evenement: evenement.id})}}" class="btn btn-evenement" >Lire la suite</a>
 				</div>
 			</div>
 		{% endfor %}
