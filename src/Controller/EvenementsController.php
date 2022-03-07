@@ -22,7 +22,7 @@ class EvenementsController extends AbstractController
     }
 
     /**
-     * @Route("/evenements", name="liste_evenements")
+     * @Route("/evenement", name="liste_evenements")
      */
     public function index()
     {
@@ -31,6 +31,22 @@ class EvenementsController extends AbstractController
 
         $lesEvenements = $evenementsRepository->findAll();
 
+        return $this->render('evenements/listeEvenements.html.twig', [
+            'lesEvenements' => $lesEvenements,
+        ]);
+    }
+
+    /**
+     * @Route("/evenements", name="liste_evenements_publiques")
+     */
+    public function afficher_publique()
+    {
+        $evenementsRepository = $this->getDoctrine()->getRepository(Evenements::class);
+
+        $lesEvenements = $evenementsRepository->findBy([
+            "estPrive" => 0
+        ]);
+        
         return $this->render('evenements/listeEvenements.html.twig', [
             'lesEvenements' => $lesEvenements,
         ]);
