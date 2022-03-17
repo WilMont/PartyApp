@@ -24,3 +24,6 @@
 /phpunit.xml
 .phpunit.result.cache
 ###< phpunit/phpunit ###
+###>/src/Migrations ###
+src/Migrations/Version20220306201208.php
+src/Migrations/Version20220306201208.php

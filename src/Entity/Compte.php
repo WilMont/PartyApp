@@ -82,6 +82,7 @@ class Compte implements UserInterface
      * @ORM\Column(type="string", length=512, nullable=true)
      */
     private $imageProfilURL;
+
     /**
      * @ORM\OneToMany(targetEntity=Participation::class, mappedBy="idUtilisateur")
      */
