@@ -42,12 +42,7 @@ class EvenementsController extends AbstractController
     public function afficher_publique()
     {
         $evenementsRepository = $this->getDoctrine()->getRepository(Evenements::class);
-
-        $lesEvenements = $evenementsRepository->findBy([
-            "estPrive" => 0
-        ]);
-
-        
+        $lesEvenements = $evenementsRepository->findByPublicOrAuthor($this->getUser());
         
         return $this->render('evenements/listeEvenements.html.twig', [
             'lesEvenements' => $lesEvenements,

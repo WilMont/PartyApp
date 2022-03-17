@@ -3,8 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\Evenements;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\DBAL\DriverManager;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @method Evenements|null find($id, $lockMode = null, $lockVersion = null)
@@ -47,4 +48,21 @@ class EvenementsRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findByPublicOrAuthor($auth)
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT e
+            FROM App\Entity\Evenements e
+            WHERE e.estPrive = 0
+            OR e.compte = :val'
+        )->setParameter('val', $auth);
+
+        // returns an array of Product objects
+        return $query->getResult();
+
+    }
+
 }

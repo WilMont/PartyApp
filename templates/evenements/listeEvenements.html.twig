@@ -127,7 +127,11 @@
 				<hr>
 				<p id="organisateurEvenement">
 					<i class="material-icons">person</i>Auteur:
-					{{ evenement.compte.username }}</p>
+					{{ evenement.compte.username }}
+				</p>
+				<p id = "nombreParticipant" >
+					<i class="material-icons">face</i>{{evenement.participations|length}} participants
+				</p>
 				<p>
 					<i class="material-icons">add_to_queue</i>
 					Ajouté le
