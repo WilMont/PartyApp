@@ -25,6 +25,10 @@ class RegisterController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+            if (!filter_var($compte->getImageProfilURL(), FILTER_VALIDATE_URL) || empty($compte->getImageProfilURL())) {
+                $compte->setImageProfilURL("https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png");
+            }
+
             $compte->setPassword($encoder->encodePassword($compte, $compte->getPassword()));
             $compte->setRoles('ROLE_USER');
 
