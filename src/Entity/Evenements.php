@@ -64,9 +64,26 @@ class Evenements
      */
     private $dateDebut;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $estPrive;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Participation::class, mappedBy="idEvenements")
+     */
+    private $participations;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Invitation::class, mappedBy="evenement")
+     */
+    private $invitations;
+
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
+        $this->participations = new ArrayCollection();
+        $this->invitations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -180,6 +197,78 @@ class Evenements
     public function setDateDebut(\DateTimeInterface $dateDebut): self
     {
         $this->dateDebut = $dateDebut;
+        return $this;
+    }
+
+    public function getEstPrive(): ?bool
+    {
+        return $this->estPrive;
+    }
+
+    public function setEstPrive(bool $estPrive): self
+    {
+        $this->estPrive = $estPrive;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Participation>
+     */
+    public function getParticipations(): Collection
+    {
+        return $this->participations;
+    }
+
+    public function addParticipation(Participation $participation): self
+    {
+        if (!$this->participations->contains($participation)) {
+            $this->participations[] = $participation;
+            $participation->setIdEvenements($this);
+        }
+
+        return $this;
+    }
+
+    public function removeParticipation(Participation $participation): self
+    {
+        if ($this->participations->removeElement($participation)) {
+            // set the owning side to null (unless already changed)
+            if ($participation->getIdEvenements() === $this) {
+                $participation->setIdEvenements(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Invitation>
+     */
+    public function getInvitations(): Collection
+    {
+        return $this->invitations;
+    }
+
+    public function addInvitation(Invitation $invitation): self
+    {
+        if (!$this->invitations->contains($invitation)) {
+            $this->invitations[] = $invitation;
+            $invitation->setEvenement($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInvitation(Invitation $invitation): self
+    {
+        if ($this->invitations->removeElement($invitation)) {
+            // set the owning side to null (unless already changed)
+            if ($invitation->getEvenement() === $this) {
+                $invitation->setEvenement(null);
+            }
+        }
+
         return $this;
     }
 }

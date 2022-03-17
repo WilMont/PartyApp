@@ -49,11 +49,14 @@
 			{{ form_errors(form.categories) }}
 			<br>
 			{{ form_widget(form.categories) }}
+			<br>
+			{{ form_label(form.estPrive) }}
+			{{ form_widget(form.estPrive) }}
 			{{ form_row(form.valider) }}
 			{{ form_end(form) }}
 
 
-			<form action="{{ path("liste_evenements") }}">
+			<form action="{{ path("liste_evenements_publiques") }}">
 				<button class="btn btn-secondary">Annuler</button>
 			</form>
 		</a>

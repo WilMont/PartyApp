@@ -30,7 +30,7 @@
 				{{ form_row(form.supprimer, {class : 'btn btn-danger'}) }}
 				{{ form_end(form) }}
 
-				<form action="{{ path("liste_evenements") }}">
+				<form action="{{ path("liste_evenements_publiques") }}">
 					<button class="btn btn-secondary">Annuler</button>
 				</form>
 			{% elseif app.user != evenement.compte %}

@@ -17,7 +17,7 @@
 			}
 		</style>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<a class="navbar-brand" href="#">PartyApp🎉</a>
+			<span class="navbar-brand">PartyApp🎉</span>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -30,13 +30,20 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{path('liste_evenements')}}">EVENEMENTS</a>
+						<a class="nav-link" href="{{path('liste_evenements_publiques')}}">EVENEMENTS</a>
 					</li>
 					<li class="nav-item">
 						{% if app.user %}
 							<a class="nav-link" href="{{path('evenement_ajouter')}}">CREER EVENEMENT</a>
 						{% elseif not app.user %}
 							<a class="nav-link" href="{{path('login')}}">CREER EVENEMENT</a>
+						{% endif %}
+					</li>
+					<li class="nav-item">
+						{% if app.user %}
+							<a class="nav-link" href="{{path('invitation_liste')}}">INVITATIONS</a>
+						{% elseif not app.user %}
+							<a class="nav-link" href="{{path('login')}}">INVITATIONS</a>
 						{% endif %}
 					</li>
 				</ul>
