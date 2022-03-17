@@ -24,3 +24,11 @@
 /phpunit.xml
 .phpunit.result.cache
 ###< phpunit/phpunit ###
+<<<<<<< HEAD
+
+/src/Migrations
+=======
+###>/src/Migrations ###
+src/Migrations/Version20220306201208.php
+src/Migrations/Version20220306201208.php
+>>>>>>> a49c22a1a54551224d1f3f91680498e03ddf7320
