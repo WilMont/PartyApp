@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ titre }}
+{% endblock %}
+
+{% block body %}
+	<style>
+		.main-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+			overflow: auto
+		}
+		p {
+			padding: 0;
+			margin: 0;
+		}
+		.col {
+			border: 1px solid red;
+		}
+		.profilRow {
+			display: flex;
+			align-items: center;
+			justify-content: center
+		}
+		.text {
+			font-size: 20px;
+			padding-left: 20px;
+		}
+		#nomUtilisateur {
+			top: 0;
+		}
+
+		.imageProfil {
+			float: left
+		}
+		.imageProfil img {
+			display: block;
+			width: 250px;
+			height: 250px;
+			padding: 0;
+			margin: 0;
+		}
+		.descriptionUtilisateur {
+			margin-left: 210px
+		}
+		.nomUtilisateur {
+			font-weight: bold;
+			font-size: 200%
+		}
+	</style>
+
+	<div class="main-wrapper">
+		<div class="informationsPubliquesRow">
+			<div class="imageProfil"><img src="{{ compte.imageProfilURL }}"/></div>
+			<div class="descriptionUtilisateur">
+				<h3 class="nomUtilisateur">{{ compte.username }}</h3>
+				<p>
+					post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc post desc
+				</p>
+			</div>
+		</div>
+		<hr>
+		<div class="informationsPriveesRow">
+			<b>Nom:</b>
+			{{ compte.nom }}
+			<br>
+			<b>Prénom:</b>
+			{{ compte.prenom }}
+			<b>Mail:</b>
+			{{ compte.email }}
+		</div>
+	</div>
+
+
+</div></div>{% endblock %}

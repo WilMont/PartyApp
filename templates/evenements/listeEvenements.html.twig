@@ -80,14 +80,16 @@
 				<hr>
 				<p id="organisateurEvenement">
 					<i class="material-icons">person</i>Auteur:
-					{{ evenement.compte.username }}</p>
+					<a href="{{path('profil', {id_compte: evenement.compte.id})}}">{{ evenement.compte.username }}</a>
+				</p>
 				<p>
 					<i class="material-icons">add_to_queue</i>
 					Ajouté le
 					{{ evenement.dateCreation | date('d/m/Y') }}
 					à
 					{{ evenement.dateCreation | date('H:i')}}
-					dans la categorie {{ evenement.categories.nom }}.
+					dans la categorie
+					{{ evenement.categories.nom }}.
 				</p>
 				<p>
 					<i class="material-icons" style="color:crimson;">fiber_manual_record</i>

@@ -78,6 +78,11 @@ class Compte implements UserInterface
      */
     private $commentaires;
 
+    /**
+     * @ORM\Column(type="string", length=512, nullable=true)
+     */
+    private $imageProfilURL;
+
     public function __construct()
     {
         $this->evenements = new ArrayCollection();
@@ -171,14 +176,24 @@ class Compte implements UserInterface
         return $this;
     }
 
+    public function getImageProfilURL(): ?string
+    {
+        return $this->imageProfilURL;
+    }
+
+    public function setImageProfilURL(?string $imageProfilURL): self
+    {
+        $this->imageProfilURL = $imageProfilURL;
+
+        return $this;
+    }
+
     public function getSalt()
     {
-
     }
 
     public function eraseCredentials()
     {
-
     }
 
     /**
@@ -242,5 +257,4 @@ class Compte implements UserInterface
 
         return $this;
     }
-
 }
