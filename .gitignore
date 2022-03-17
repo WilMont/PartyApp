@@ -24,5 +24,4 @@
 /phpunit.xml
 .phpunit.result.cache
 ###< phpunit/phpunit ###
-
 /src/Migrations
