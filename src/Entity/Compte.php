@@ -90,7 +90,7 @@ class Compte implements UserInterface
     /**
      * @ORM\OneToMany(targetEntity=Invitation::class, mappedBy="utilisateur")
      */
-    private $invitations
+    private $invitations;
 
     public function __construct()
     {
