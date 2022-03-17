@@ -4,6 +4,9 @@ php bin/console server:run
 Lancer le serveur local sous Symfony 5:
 php -S localhost:8000 -t public
 
+Lancer en mode serveur (d'autres équipements peuvent accéder à l'adresse)
+php bin/console server:run 0.0.0.0:8000
+
 Faire un formulaire:
 php ./bin/console make:form
 
