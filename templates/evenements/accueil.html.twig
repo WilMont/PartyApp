@@ -6,11 +6,20 @@
 
 {% block body %}
 	<style>
+		html { 
+			background: url(https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77701267602.jpg) no-repeat center center fixed; 
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+		}
 		.main-wrapper {
 			margin: 1em auto;
 			max-width: 800px;
 			width: 95%;
 			font: 18px / 1.5 sans-serif;
+			position: absolute;
+			text-align: center;
 		}
 		.main-wrapper button {
 			width: 100%;
@@ -18,11 +27,21 @@
 			text-align: center;
 			margin-top: 10px;
 		}
+		.text{
+			width: 50vw;
+			left : 25vw;
+			position : fixed;
+			font-size: auto;
+			max-height: 55%;
+		}
+
 	</style>
 
 	<div class="main-wrapper">
     <br>
+	<div class="text">
     <h1>Bienvenue sur PartyApp !</h1>
-    <p>Sur PartyApp, tu peux t'informer et partager avec les autres sur les prochains évènements à venir.</p>
+    <p>Sur PartyApp🎉, tu peux t'informer et partager avec les autres sur les prochains évènements à venir.</p>
+	</div>
     </div>
 {% endblock %}
