@@ -43,6 +43,7 @@ class EvenementsController extends AbstractController
     {
         $evenementsRepository = $this->getDoctrine()->getRepository(Evenements::class);
         $lesEvenements = $evenementsRepository->findByPublicOrAuthor($this->getUser());
+
         return $this->render('evenements/listeEvenements.html.twig', [
             'lesEvenements' => $lesEvenements,
         ]);
