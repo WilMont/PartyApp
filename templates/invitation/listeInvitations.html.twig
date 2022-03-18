@@ -12,7 +12,7 @@
         {% for invitation in invitations%}
         
         <div>
-            <span> {{invitation.id}}</span>
+            <span> {{invitation.evenement.titre}}</span>
         </div>
         <a href="{{ path("invitation_accepter",{"idInvitation":invitation.id,"idEvenement":invitation.evenement.id,"idUtilisateur":invitation.utilisateur.id}) }}">Accepter</a>
         <a href="{{ path("invitation_refuser",{"idInvitation":invitation.id}) }}">Refuser</a>

@@ -111,9 +111,11 @@
 				{% else %}
 					{% for participation in evenement.participations  %}
 						{% if not break %}
-							{% if app.user.id  ==  participation.idUtilisateur.id %}
-								{% set present = true %}
-								{% set break = true %}
+							{% if app.user %}
+								{% if app.user.id  ==  participation.idUtilisateur.id %}
+									{% set present = true %}
+									{% set break = true %}
+								{% endif %}
 							{% endif %}
 						{% endif %}
 					{% endfor %}
