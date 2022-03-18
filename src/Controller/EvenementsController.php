@@ -43,7 +43,6 @@ class EvenementsController extends AbstractController
     {
         $evenementsRepository = $this->getDoctrine()->getRepository(Evenements::class);
         $lesEvenements = $evenementsRepository->findByPublicOrAuthor($this->getUser());
-        
         return $this->render('evenements/listeEvenements.html.twig', [
             'lesEvenements' => $lesEvenements,
         ]);
@@ -73,7 +72,7 @@ class EvenementsController extends AbstractController
             $em->persist($evenement);
             $em->flush();
 
-            return $this->redirectToRoute("liste_evenements");
+            return $this->redirectToRoute("liste_evenements_publiques");
         }
 
         return $this->render('evenements/formulaireAjoutEvenement.html.twig', [
@@ -104,7 +103,7 @@ class EvenementsController extends AbstractController
             $em->persist($evenement);
             $em->flush();
 
-            return $this->redirectToRoute("liste_evenements");
+            return $this->redirectToRoute("liste_evenements_publiques");
         }
 
         return $this->render('evenements/formulaireModificationEvenement.html.twig', [
@@ -135,7 +134,7 @@ class EvenementsController extends AbstractController
             $em->remove($evenement);
             $em->flush();
 
-            return $this->redirectToRoute("liste_evenements");
+            return $this->redirectToRoute("liste_evenements_publiques");
         }
 
         return $this->render('evenements/confirmationSuppressionEvenement.html.twig', [

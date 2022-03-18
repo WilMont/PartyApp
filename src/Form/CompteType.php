@@ -21,6 +21,7 @@ class CompteType extends AbstractType
             ->add('nom', TextType::class, array('label' => 'Nom (optionnel)'))
             ->add('prenom', TextType::class, array('label' => 'Prénom (optionnel)'))
             ->add('username', TextType::class, array('label' => 'Nom d\'utilisateur'))
+            ->add('profilePictureURL', TextType::class, array('label' => 'Image de profil'))
             ->add('email', EmailType::class)
             ->add('password', RepeatedType::class, array(
                 'type' => PasswordType::class,
@@ -29,7 +30,6 @@ class CompteType extends AbstractType
                 'constraints' => array(new Length(['min' => 6, 'minMessage' => 'Votre mot de passe doit contenir au moins 6 caractères.'])),
             ))
             ->add('inscription', SubmitType::class, array('label' => 'Créer un compte', 'attr' => ['class' => 'btn btn-success']));
-
     }
 
     public function configureOptions(OptionsResolver $resolver)
